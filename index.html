@@ -52,6 +52,15 @@
         <button x-on:click="open = !open">Switch class</button>
         <div class="square" x-bind:class="open ? 'color-red' : ''"></div>
       </div>
+      <hr />
+      <h2>X-Bind</h2>
+      <p>
+        vous permet de définir des attributs HTML sur des éléments en fonction
+        du résultat du JavaScript.
+      </p>
+      <div x-data="{ placeholder: 'Type here...' }">
+        <input type="text" x-bind:placeholder="placeholder" />
+      </div>
     </div>
     <script>
       function handleClick() {

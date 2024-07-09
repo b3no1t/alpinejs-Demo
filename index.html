@@ -12,10 +12,14 @@
     <style>
       .color-red {
         background-color: red;
+        transition: all 1s;
       }
       .square {
-        width: 42px;
-        height: 42px;
+        position: absolute;
+        top: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: -10;
       }
     </style>
   </head>
@@ -39,7 +43,7 @@
       <hr />
       <h2>Hello world</h2>
       <div x-data="{ name: 'John Doe' }">
-        <p x-text="name">Bonjour {{ name }} !</p>
+        <p>Bonjour <span x-text="name">{{ name }} !</span></p>
       </div>
       <hr />
       <h2>Gestion du Click</h2>
@@ -64,7 +68,8 @@
       <hr />
       <h2>Counter/Decounter</h2>
       <div x-data="{ count: 0 }">
-        <button x-on:click="count = count > 0 ? count-1 : count">-</button>
+        <!-- x-data déclare le js a calculer et/ou la variable a afficher, son état de départ  -->
+        <button x-on:click="count = count > 0 ? count-1 : count++">-</button>
         <span x-text="count"></span>
         <button x-on:click="count++">+</button>
       </div>

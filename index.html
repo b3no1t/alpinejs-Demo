@@ -10,7 +10,8 @@
     />
     <script src="//unpkg.com/alpinejs" defer></script>
     <style>
-      .color-red {
+      .color-red,
+      .bg-red {
         background-color: red;
         transition: all 1s;
       }
@@ -36,10 +37,9 @@
       </div>
       <hr />
 
-      <h2>Button toggle 2</h2>
+      <h2>Button toggle 2 x-if</h2>
       <div x-data="{ open: false }">
         <button x-on:click="open = !open">Expand toggle</button>
-
         <template x-if="open">
           <span>
             Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reiciendis
@@ -47,6 +47,18 @@
             modi?
           </span>
         </template>
+      </div>
+
+      <h2>Button toggle 2 x-show</h2>
+      <div x-data="{ open: false }">
+        <button @click="open = ! open">Expands</button>
+        <div
+          x-show="open"
+          x-transition:enter.duration.500ms
+          x-transition:leave.duration.1000ms
+        >
+          Content...
+        </div>
       </div>
 
       <hr />
@@ -66,11 +78,13 @@
         <button @click="handleClick">Cliquez ici</button>
       </div>
       <hr />
+
       <h2>Toggle button</h2>
       <div x-data="{ open: false }">
         <button x-on:click="open = !open">Switch class</button>
         <div class="square" x-bind:class="open ? 'color-red' : ''"></div>
       </div>
+
       <hr />
       <h2>X-Bind</h2>
       <p>
@@ -88,6 +102,15 @@
         <span x-text="count"></span>
         <button x-on:click="count++">+</button>
       </div>
+      <hr />
+      <h2>X-Bind btn</h2>
+      <button
+        x-data="{ red: false }"
+        x-bind:class="red ? 'bg-red' : ''"
+        @click="red = ! red"
+      >
+        Toggle Red
+      </button>
     </div>
     <script>
       function handleClick() {

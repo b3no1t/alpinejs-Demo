@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AlpineJS</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
+    />
+    <script src="//unpkg.com/alpinejs" defer></script>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Button Expand</h2>
+      <div x-data="{ open: false }">
+        <button @click="open = true">Expand</button>
+        <span x-show="open">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet error,
+          vitae iure expedita fuga ut ipsa dolores nobis beatae facilis id. Nemo
+          veritatis aut tempore ullam impedit, at repudiandae. Facilis,
+          voluptatem explicabo cum natus commodi incidunt nam, tempora
+          necessitatibus aliquid quod laboriosam voluptate laborum maxime
+          blanditiis, obcaecati a ad. Similique.
+        </span>
+      </div>
+      <hr />
+      <h2>compteur</h2>
+      <div x-data="{ count: 0 }">
+        <button @click="count++">Cliquez pour augmenter le compteur</button>
+        <p x-text="count">Le compteur a {{ count }} clics</p>
+      </div>
+      <hr />
+      <h2>Hello world</h2>
+      <div x-data="{ name: 'John Doe' }">
+        <p x-text="name">Bonjour {{ name }} !</p>
+      </div>
+    </div>
+  </body>
+</html>

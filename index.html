@@ -9,6 +9,15 @@
       href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
     />
     <script src="//unpkg.com/alpinejs" defer></script>
+    <style>
+      .color-red {
+        background-color: red;
+      }
+      .square {
+        width: 42px;
+        height: 42px;
+      }
+    </style>
   </head>
   <body>
     <div class="container">
@@ -16,12 +25,9 @@
       <div x-data="{ open: false }">
         <button @click="open = true">Expand</button>
         <span x-show="open">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet error,
-          vitae iure expedita fuga ut ipsa dolores nobis beatae facilis id. Nemo
-          veritatis aut tempore ullam impedit, at repudiandae. Facilis,
-          voluptatem explicabo cum natus commodi incidunt nam, tempora
-          necessitatibus aliquid quod laboriosam voluptate laborum maxime
-          blanditiis, obcaecati a ad. Similique.
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reiciendis
+          sit consequatur laboriosam dolorem, amet ab cum iusto est corrupti
+          modi?
         </span>
       </div>
       <hr />
@@ -35,6 +41,22 @@
       <div x-data="{ name: 'John Doe' }">
         <p x-text="name">Bonjour {{ name }} !</p>
       </div>
+      <hr />
+      <h2>Gestion du Click</h2>
+      <div x-data="handleClick">
+        <button @click="handleClick">Cliquez ici</button>
+      </div>
+      <hr />
+      <h2>Toggle button</h2>
+      <div x-data="{ open: false }">
+        <button x-on:click="open = !open">Switch class</button>
+        <div class="square" x-bind:class="open ? 'color-red' : ''"></div>
+      </div>
     </div>
+    <script>
+      function handleClick() {
+        console.log("toto");
+      }
+    </script>
   </body>
 </html>

@@ -61,6 +61,13 @@
       <div x-data="{ placeholder: 'Type here...' }">
         <input type="text" x-bind:placeholder="placeholder" />
       </div>
+      <hr />
+      <h2>Counter/Decounter</h2>
+      <div x-data="{ count: 0 }">
+        <button x-on:click="count = count > 0 ? count-1 : count">-</button>
+        <span x-text="count"></span>
+        <button x-on:click="count++">+</button>
+      </div>
     </div>
     <script>
       function handleClick() {

@@ -35,6 +35,21 @@
         </span>
       </div>
       <hr />
+
+      <h2>Button toggle 2</h2>
+      <div x-data="{ open: false }">
+        <button x-on:click="open = !open">Expand toggle</button>
+
+        <template x-if="open">
+          <span>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reiciendis
+            sit consequatur laboriosam dolorem, amet ab cum iusto est corrupti
+            modi?
+          </span>
+        </template>
+      </div>
+
+      <hr />
       <h2>compteur</h2>
       <div x-data="{ count: 0 }">
         <button @click="count++">Cliquez pour augmenter le compteur</button>
